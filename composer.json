@@ -1,0 +1,22 @@
+{
+    "name": "bennetgallein/panel_template",
+    "description": "A Template for any Webpanel I have to make",
+    "type": "project",
+    "require": {
+        "bennetgallein/angle-framework": "dev-master",
+        "thecodingmachine/safe": "^0.1.6"
+    },
+    "authors": [
+        {
+            "name": "bennetgallein",
+            "email": "bennet@intranetproject.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "_Controllers/",
+            "Objects\\": "_Objects/",
+            "Module\\": "_Modules/"
+        }
+    }
+}
