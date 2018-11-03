@@ -1,2 +1,2 @@
 	<!-- js -->
-	<script src="vendors/scripts/script.js"></script>
+	{ js vendors/scripts/script.js }

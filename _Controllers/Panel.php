@@ -13,6 +13,7 @@ use Angle\Engine\RouterEngine\Collection;
 use Angle\Engine\RouterEngine\Router;
 use Angle\Engine\Template\Engine;
 use Module\BaseModule\BaseModule;
+use Module\KundenModule\KundenModule;
 use Module\UserModule\UserModule;
 use Safe\Exceptions\FilesystemException;
 use Safe\Exceptions\JsonException;
@@ -35,13 +36,13 @@ class Panel {
         $this->initBaseRoutes();
 
         // NavigationManager
-        new DataBase("localhost", "powerhost", "powerhost", "powerhost");
+        new DataBase("localhost", "books", "books", "books");
         new PermissionManager();
         new NavigationManager();
 
         // initiate all Modules
         new BaseModule();
-
+        new KundenModule();
 
         $this->match();
     }

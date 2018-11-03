@@ -2,11 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: bennet
- * Date: 02.11.18
- * Time: 09:47
+ * Date: 03.11.18
+ * Time: 16:03
  */
 
-namespace Module\BaseModule;
+namespace Module\KundenModule;
+
 
 use Module\Module;
 use Objects\NavPoint;
@@ -14,9 +15,9 @@ use Objects\Permission;
 use Safe\Exceptions\JsonException;
 use Safe\Exceptions\PcreException;
 
-class BaseModule extends Module {
+class KundenModule extends Module {
 
-    private $name = "BaseModule";
+    private $name = "KundenModule";
     private $version = "0.0.1";
     private $author = "Bennet Gallein <me@bennetgallein.de>";
 
@@ -35,7 +36,9 @@ class BaseModule extends Module {
 
     public function routes() {
         $data = array(
-            array("/", "BaseModule\Test::main", ["engine" => $this->engine], "GET"),
+            array("/kunden", "KundenModule\\Controllers\\Kunden::getList", ["engine" => $this->engine], "GET"),
+            array("/kunden/new", "KundenModule\\Controllers\\Kunden::add", ["engine" => $this->engine], "GET"),
+            array("/kunden/new", "KundenModule\\Controllers\\Kunden::addNew", [], "POST")
         );
         $this->_registerRoutes($data);
     }
@@ -59,4 +62,5 @@ class BaseModule extends Module {
         );
         $this->_registerPermissions($data);
     }
+
 }

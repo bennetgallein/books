@@ -97,12 +97,13 @@ class DataBase {
     /**
      * fetch all data
      * @param  string $table table name
+     * @param int $mode
      * @return bool|\PDOStatement recordset
      */
-    public function fetch_all($table) {
+    public function fetch_all($table, $mode = PDO::FETCH_OBJ) {
         $sel = $this->pdo->prepare("SELECT * FROM $table");
         $sel->execute();
-        $sel->setFetchMode(PDO::FETCH_OBJ);
+        $sel->setFetchMode($mode);
         return $sel;
     }
 
