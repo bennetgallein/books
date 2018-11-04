@@ -48,19 +48,19 @@
                             <tbody>
                                 { foreach :invoice in :data }
                                 <tr>
-                                    <td class="table-plus">{ :invoice.invoice_id }</td>
+                                    <td class="table-plus"><a data-id="{ :invoice.link }" onclick="openInvoice(this.dataset.id)">{ :invoice.invoice_id }</a></td>
                                     <td>{ :invoice.customer }</td>
                                     <td>{ :invoice.product }</td>
                                     <td>{ :invoice.total }</td>
                                     <td>{ :invoice.complete }</td>
                                 </tr>
                                 { endforeach }
+
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<!-- Export Datatable End -->
-			</div>
+            </div>
 			{ include("_views/include/footer.php") }
 		</div>
 	</div>
@@ -77,7 +77,14 @@
 	{ js src/plugins/datatables/media/js/button/buttons.flash.js }
 	{ js src/plugins/datatables/media/js/button/pdfmake.min.js }
 	{ js src/plugins/datatables/media/js/button/vfs_fonts.js }
+
 	<script>
+
+        function openInvoice(link) {
+            let strWindowFeatures = "location=yes,height=932,width=646,scrollbars=yes,status=yes";
+            let win = window.open(link, "_blank", strWindowFeatures);
+        }
+
 		$('document').ready(function(){
 			$('.data-table').DataTable({
 				scrollCollapse: true,

@@ -36,6 +36,8 @@ class RechnungsModule extends Module  {
     public function routes() {
         $data = array(
             array("/rechnungen", "RechnungsModule\Controllers\Invoices::list", ["engine" => $this->engine], "GET"),
+            array("/rechnungen/new", "RechnungsModule\Controllers\Invoices::newGet", ["engine" => $this->engine], "GET"),
+            array("/rechnungen/new", "RechnungsModule\Controllers\Invoices::newPost", [], 'POST')
         );
         $this->_registerRoutes($data);
     }
