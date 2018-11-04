@@ -23,7 +23,7 @@ class Kunden {
             $customers[] = $customer;
         }
 
-        $engine->render("_views/datatable.php", array(
+        $engine->render("_views/customers.php", array(
             "data" => $customers
         ));
     }

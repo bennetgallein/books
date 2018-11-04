@@ -38,7 +38,7 @@
 								</div>
 							</div>
 							<div class="project-info-right">
-								<span class="no text-light-green weight-500 font-24">50€</span>
+								<span class="no text-light-green weight-500 font-24">{ :umsatz_netto_total }€</span>
 								<p class="weight-400 font-18">Netto</p>
 							</div>
 						</div>
@@ -58,7 +58,7 @@
 								</div>
 							</div>
 							<div class="project-info-right">
-								<span class="no text-light-orange weight-500 font-24">100€</span>
+								<span class="no text-light-orange weight-500 font-24">{ :umsatz_brutto_total }0€</span>
 								<p class="weight-400 font-18">Brutto</p>
 							</div>
 						</div>
@@ -78,7 +78,7 @@
 								</div>
 							</div>
 							<div class="project-info-right">
-								<span class="no text-light-purple weight-500 font-24">10 </span>
+								<span class="no text-light-purple weight-500 font-24">10</span>
 								<p class="weight-400 font-18">Rechnungen</p>
 							</div>
 						</div>
@@ -91,7 +91,7 @@
 				</div>
 			</div>
 			<div class="bg-white pd-20 box-shadow border-radius-5 mb-30">
-				<h4 class="mb-30">Umsatz des Jahres</h4>
+				<h4 class="mb-30">Jahresumsatz</h4>
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12 xs-mb-20">
 						<div id="areaspline-chart" style="min-width: 210px; height: 400px; margin: 0 auto"></div>
@@ -157,10 +157,15 @@
 				}
 			},
 			series: [{
-				name: 'John',
-				data: { :umsatz },
+				name: 'Umsatz Netto',
+				data: { :umsatz_netto },
 				color: '#f5956c'
-			}]
+			},
+            {
+                name: 'Umsatz Brutto',
+                data: { :umsatz_brutto },
+                color: '#41ccba'
+            }]
 		});
 	</script>
 </body>

@@ -35,7 +35,7 @@ class RechnungsModule extends Module  {
 
     public function routes() {
         $data = array(
-            array("/", "BaseModule\Test::main", ["engine" => $this->engine], "GET"),
+            array("/rechnungen", "RechnungsModule\Controllers\Invoices::list", ["engine" => $this->engine], "GET"),
         );
         $this->_registerRoutes($data);
     }

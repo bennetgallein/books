@@ -14,6 +14,7 @@ use Angle\Engine\RouterEngine\Router;
 use Angle\Engine\Template\Engine;
 use Module\BaseModule\BaseModule;
 use Module\KundenModule\KundenModule;
+use Module\RechnungsModule\RechnungsModule;
 use Module\UserModule\UserModule;
 use Safe\Exceptions\FilesystemException;
 use Safe\Exceptions\JsonException;
@@ -43,6 +44,7 @@ class Panel {
         // initiate all Modules
         new BaseModule();
         new KundenModule();
+        new RechnungsModule();
 
         $this->match();
     }

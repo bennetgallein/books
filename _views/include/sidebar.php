@@ -21,6 +21,15 @@
 							<li><a href="{ :app_url }kunden/new">Neuer Kunde</a></li>
 						</ul>
 					</li>
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="fa fa-paper-plane"></span><span class="mtext">Rechnungen</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="{ :app_url }rechnungen">Übersicht</a></li>
+                            <li><a href="{ :app_url }rechnungen/new">Neue Rechnung</a></li>
+                        </ul>
+                    </li>
 				</ul>
 			</div>
 		</div>
