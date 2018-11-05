@@ -8,7 +8,7 @@
 			<div class="sidebar-menu">
 				<ul id="accordion-menu">
 					<li>
-						<a href="{ :app_url }" class="dropdown-toggle">
+						<a href="{ :app_url }" class="dropdown-toggle no-arrow">
 							<span class="fa fa-home"></span><span class="mtext">Home</span>
 						</a>
 					</li>
@@ -29,6 +29,11 @@
                             <li><a href="{ :app_url }rechnungen">Übersicht</a></li>
                             <li><a href="{ :app_url }rechnungen/new">Neue Rechnung</a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="{ :app_url }todo" class="dropdown-toggle no-arrow">
+                            <span class="fa fa-list"></span><span class="mtext">TODO</span>
+                        </a>
                     </li>
 				</ul>
 			</div>

@@ -15,9 +15,10 @@ use Angle\Engine\Template\Engine;
 use Module\BaseModule\BaseModule;
 use Module\KundenModule\KundenModule;
 use Module\RechnungsModule\RechnungsModule;
-use Module\UserModule\UserModule;
+use Module\TODOModule\TODOModule;
 use Safe\Exceptions\FilesystemException;
 use Safe\Exceptions\JsonException;
+use Safe\Exceptions\PcreException;
 
 class Panel {
 
@@ -42,9 +43,18 @@ class Panel {
         new NavigationManager();
 
         // initiate all Modules
-        new BaseModule();
-        new KundenModule();
-        new RechnungsModule();
+        try {
+
+            new BaseModule();
+            new KundenModule();
+            new RechnungsModule();
+            new TODOModule();
+
+        } catch (FilesystemException $e) {
+        } catch (JsonException $e) {
+        } catch (PcreException $e) {
+        }
+
 
         $this->match();
     }
@@ -57,7 +67,7 @@ class Panel {
         $router = new Router($this->collection);
         $route = $router->matchCurrentRequest();
         if (!$route) {
-            $this->engine->render("_views/404.tmp");
+            $this->engine->render("_views/404.php");
         }
     }
 

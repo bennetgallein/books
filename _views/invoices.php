@@ -43,6 +43,7 @@
                                     <th>Produkt</th>
 									<th>Total</th>
 									<th>Bezahlt</th>
+                                    <th>Aktion</th>
 								</tr>
 							</thead>
                             <tbody>
@@ -53,6 +54,8 @@
                                     <td>{ :invoice.product }</td>
                                     <td>{ :invoice.total }</td>
                                     <td>{ :invoice.complete }</td>
+                                    <td><a class="btn btn-success" data-id="{ :invoice.id }" onclick="mark(this.dataset.id)" href="#"><i class="fa fa-check"></i>Als bezahlt makieren</a>
+                                    </td>
                                 </tr>
                                 { endforeach }
 
@@ -79,6 +82,13 @@
 	{ js src/plugins/datatables/media/js/button/vfs_fonts.js }
 
 	<script>
+
+        function mark(id) {
+            $.get("{ :app_url }api/mark/" + id, function(data, status) {
+                console.log(data);
+                window.location.reload(true);
+            });
+        }
 
         function openInvoice(link) {
             let strWindowFeatures = "location=yes,height=932,width=646,scrollbars=yes,status=yes";

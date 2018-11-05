@@ -2,11 +2,11 @@
 /**
  * Created by PhpStorm.
  * User: bennet
- * Date: 03.11.18
- * Time: 20:19
+ * Date: 02.11.18
+ * Time: 09:47
  */
 
-namespace Module\RechnungsModule;
+namespace Module\TODOModule;
 
 use Module\Module;
 use Objects\NavPoint;
@@ -14,9 +14,9 @@ use Objects\Permission;
 use Safe\Exceptions\JsonException;
 use Safe\Exceptions\PcreException;
 
-class RechnungsModule extends Module  {
+class TODOModule extends Module {
 
-    private $name = "RechnungsModule";
+    private $name = "TODOModule";
     private $version = "0.0.1";
     private $author = "Bennet Gallein <me@bennetgallein.de>";
 
@@ -35,10 +35,11 @@ class RechnungsModule extends Module  {
 
     public function routes() {
         $data = array(
-            array("/rechnungen", "RechnungsModule\Controllers\Invoices::list", ["engine" => $this->engine], "GET"),
-            array("/rechnungen/new", "RechnungsModule\Controllers\Invoices::newGet", ["engine" => $this->engine], "GET"),
-            array("/rechnungen/new", "RechnungsModule\Controllers\Invoices::newPost", [], 'POST'),
-            array("/api/mark/:id", "RechnungsModule\Controllers\Invoices::mark", ["id" => "\d+"], 'GET')
+            array("/todo", "TODOModule\Controllers\TODO::main", ["engine" => $this->engine], "GET"),
+            array("/todo/:id", "TODOModule\Controllers\TODO::specific", ["engine" => $this->engine, "id" => "\d+"], "GET"),
+            array("/api/todo/remove/:id", "TODOModule\Controllers\TODO::remove", ["id" => "\d+"], 'GET'),
+            array("/api/todo/createlist", "TODOModule\Controllers\TODO::createList", [], 'POST'),
+            array("/api/todo/createtask/:id", "TODOModule\Controllers\TODO::createTask", ["id" => "\d+"], 'POST')
         );
         $this->_registerRoutes($data);
     }
@@ -62,5 +63,4 @@ class RechnungsModule extends Module  {
         );
         $this->_registerPermissions($data);
     }
-
 }

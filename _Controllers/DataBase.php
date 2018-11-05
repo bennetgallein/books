@@ -40,7 +40,7 @@ class DataBase {
      * @param  array $data associative array
      * @return bool|\PDOStatement recordset
      */
-    public function custom_query($sql, $data = null) {
+    public function custom_query($sql, $data = null, $mode = PDO::FETCH_OBJ) {
         if ($data !== null) {
             $dat = array_values($data);
         }
@@ -50,7 +50,7 @@ class DataBase {
         } else {
             $sel->execute();
         }
-        $sel->setFetchMode(PDO::FETCH_OBJ);
+        $sel->setFetchMode($mode);
         return $sel;
     }
 
@@ -85,11 +85,11 @@ class DataBase {
      * @param  string $val value column
      * @return array recordset
      */
-    public function fetch_single_row($table, $col, $val) {
+    public function fetch_single_row($table, $col, $val, $mode = PDO::FETCH_OBJ) {
         $nilai = array($val);
         $sel = $this->pdo->prepare("SELECT * FROM $table WHERE $col=?");
         $sel->execute($nilai);
-        $sel->setFetchMode(PDO::FETCH_OBJ);
+        $sel->setFetchMode($mode);
         $obj = $sel->fetch();
         return $obj;
     }
@@ -130,7 +130,7 @@ class DataBase {
      * @param  array $where what column will be the condition
      * @return bool|\PDOStatement recordset
      */
-    public function fetch_multi_row($table, $col, $where) {
+    public function fetch_multi_row($table, $col, $where, $mode = PDO::FETCH_OBJ) {
         $data = array_values($where);
         //grab keys
         $cols = array_keys($where);
@@ -148,7 +148,7 @@ class DataBase {
             $sel = $this->pdo->prepare("SELECT $colum from $table WHERE $im");
         }
         $sel->execute($data);
-        $sel->setFetchMode(PDO::FETCH_OBJ);
+        $sel->setFetchMode($mode);
         return $sel;
     }
 

@@ -12,7 +12,7 @@
 				<span></span>
 				<span></span>
 			</div>
-			<div class="user-info-dropdown">
+			<!--<div class="user-info-dropdown">
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon"><i class="fa fa-user-o"></i></span>
@@ -88,6 +88,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 		</div>
 	</div>

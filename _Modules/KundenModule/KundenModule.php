@@ -38,7 +38,8 @@ class KundenModule extends Module {
         $data = array(
             array("/kunden", "KundenModule\\Controllers\\Kunden::getList", ["engine" => $this->engine], "GET"),
             array("/kunden/new", "KundenModule\\Controllers\\Kunden::add", ["engine" => $this->engine], "GET"),
-            array("/kunden/new", "KundenModule\\Controllers\\Kunden::addNew", [], "POST")
+            array("/kunden/new", "KundenModule\\Controllers\\Kunden::addNew", [], "POST"),
+            array("/pricing", "KundenModule\\Controllers\\Pricing::listAll", ["engine" => $this->engine], "GET")
         );
         $this->_registerRoutes($data);
     }

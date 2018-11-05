@@ -55,7 +55,7 @@ class Invoices {
                 "netto" => $invoice['netto'],
                 "total" => $invoice['total'] . "€",
                 "_date" => $invoice['_date'],
-                "complete" => $invoice['complete'] ? "Ja" : "Nein",
+                "complete" => $invoice['complete'] ? "Bezahlt" : "Nicht bezahlt",
                 "link" => $link
             );
         }
@@ -136,5 +136,9 @@ class Invoices {
             "uploadType" => 'multipart',
             'fields' => 'id'
         ));
+    }
+
+    public static function mark($id) {
+        Panel::getDatabase()->update("invoices", array("complete" => "1"), "id", $id);
     }
 }
