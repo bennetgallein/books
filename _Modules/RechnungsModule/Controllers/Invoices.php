@@ -65,13 +65,23 @@ class Invoices {
     }
 
     public static function newGet(Engine $engine) {
-        $engine->render("_views/invoice_new.php", array());
+        $data = Panel::getDatabase()->fetch_all("customers", PDO::FETCH_OBJ);
+
+        foreach ($data as $d) {
+            $dat[] = "[" . $d->id . "]" . $d->first_name . " " . $d->last_name;
+        }
+
+        $engine->render("_views/invoice_new.php", array(
+            "customers" => json_encode($dat),
+        ));
     }
 
     public static function newPost() {
 
         $description = $_POST['desc'];
         $customer = $_POST['customer_id'];
+        preg_match("/\d+/", $_POST['customer_id'], $ar);
+        $customer = $ar[0];
         $date = $_POST['date'];
         $netto = $_POST['netto'];
 
