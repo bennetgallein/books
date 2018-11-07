@@ -7,6 +7,8 @@ books ist ein kleines Buchhaltungssystem geschrieben in PHP for Einzelnpersonen 
 
 ## Installation
 
+**WARNING:** Dieses Projekt befindet sich im Anfangsstadium. Benutzer-login sowieso Datenbank installation sind noch nicht integriert, sollten aber bald folgen!
+
 Requirements:
 - MariaDB Datenbank
 - PHP 7.2
