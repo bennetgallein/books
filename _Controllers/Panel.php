@@ -14,6 +14,7 @@ use Angle\Engine\RouterEngine\Router;
 use Angle\Engine\Template\Engine;
 use Module\BaseModule\BaseModule;
 use Module\KundenModule\KundenModule;
+use Module\MonitorModule\MonitorModule;
 use Module\RechnungsModule\RechnungsModule;
 use Module\TODOModule\TODOModule;
 use Safe\Exceptions\FilesystemException;
@@ -30,6 +31,13 @@ class Panel {
      * Panel constructor.
      */
     public function __construct() {
+
+        $config = json_decode(file_get_contents(dirname(__FILE__) . "/../config.json"));
+
+        foreach($config as $key => $value) {
+            define($key, $value);
+        }
+
         $this->engine = new Engine("_views");
         $this->collection = new Collection();
 
@@ -38,7 +46,7 @@ class Panel {
         $this->initBaseRoutes();
 
         // NavigationManager
-        new DataBase("localhost", "books", "books", "books");
+        new DataBase(DB_HOST, DB_USER, DB_PASSWD, DB_DATAB);
         new PermissionManager();
         new NavigationManager();
 
@@ -49,6 +57,7 @@ class Panel {
             new KundenModule();
             new RechnungsModule();
             new TODOModule();
+            new MonitorModule();
 
         } catch (FilesystemException $e) {
         } catch (JsonException $e) {

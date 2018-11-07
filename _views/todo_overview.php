@@ -12,7 +12,7 @@
             { foreach :list in :lists }
             <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
                 <div class="card box-shadow">
-                    <img class="card-img-top" src="https://loremflickr.com/1920/1080?random={ :list.id }" alt="Card image cap">
+                    <img class="card-img-top" src="https://loremflickr.com/1920/1080?random={ :list.id }&lock={ :list.id }" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title weight-500">{ :list.title }</h5>
                         <p class="card-text">{ :list.description }</p>

@@ -35,6 +35,11 @@
                             <span class="fa fa-list"></span><span class="mtext">TODO</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{ :app_url }monitor" class="dropdown-toggle no-arrow">
+                            <span class="fa fa-ambulance"></span><span class="mtext">Monitoring</span>
+                        </a>
+                    </li>
 				</ul>
 			</div>
 		</div>
